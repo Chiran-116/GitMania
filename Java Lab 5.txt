@@ -1,0 +1,130 @@
+1.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+
+import java.util.*;
+public class ArrayListExample 
+{
+	public static void main(String[] args) 
+	{
+		ArrayList arraylist1 = new ArrayList(4);
+		arraylist1.add("Voilet");
+		arraylist1.add("Indigo");
+		arraylist1.add("Blue");
+		arraylist1.add("Green");
+		arraylist1.add("Green");
+		
+		ArrayList arraylist2 = new ArrayList(arraylist1);
+		
+		ArrayList arraylist = new ArrayList();
+		arraylist.add("Yellow");
+		arraylist.add("Orange");
+		arraylist.add("Red");
+		
+		System.out.println(arraylist2);
+		System.out.println(arraylist);
+	}
+}
+
+
+2.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.util.Iterator;
+import java.util.LinkedList;
+
+public class LinkedListExample 
+{
+	public static void main(String[] args) 
+	{
+		LinkedList link = new LinkedList();
+		link.addFirst("January");
+		link.addFirst("February");
+		link.addFirst("March");
+		link.addLast("May");
+		link.addLast("June");
+		System.out.println("The elements of the linked list are :"+link);
+		System.out.println("The elements of the linked list are :"+link.getFirst());
+		System.out.println("The elements of the linked list are :"+link.getLast());
+		System.out.println("The elements of the linked list are :"+link.removeFirst());
+		System.out.println("The elements of the linked list are :"+link);
+		for(Iterator i = link.iterator();i.hasNext();)
+		{
+			System.out.println(i.next());
+		}
+	}
+}
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+3.
+import java.util.*;
+public class HashExample
+{
+
+	public static void main(String[] args) 
+	{
+		HashSet hs = new HashSet();
+		hs.add("My");
+		hs.add("name");
+		hs.add("is");
+		hs.add("nirupama");
+		System.out.println(hs);
+	}
+
+}
+
+
+4.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.util.*;
+public class TreeSetExample 
+{
+
+		public static void main(String[] args)
+		{
+			TreeSet ts = new TreeSet();
+			ts.add("Red");
+			ts.add("Green");
+			ts.add("Blue");
+			for(Iterator t = ts.iterator();t.hasNext();)
+			{
+				System.out.println(t.next());
+			}
+		}
+}
+
+
+
+
+5.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+import java.util.PriorityQueue;
+public class PriorityQueueExample 
+{
+
+	public static void main(String[] args)
+	{
+		PriorityQueue numbers = new PriorityQueue();
+		
+		numbers.add("Red");
+		numbers.add("Green");
+		System.out.println("PriorityQueue: " + numbers);
+		numbers.offer("Apricot");
+		System.out.println("Updated Pripority Queue: " + numbers);
+		System.out.println(numbers.peek());
+		System.out.println(numbers.poll());
+		System.out.println(numbers.poll());
+	}
+
+}
+
+

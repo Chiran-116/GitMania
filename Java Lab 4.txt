@@ -1,0 +1,142 @@
+1.
+import java.util.*;
+public class Main {
+	enum restaurant {PizzaHut,Dominos,Udupi_upachar;}
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		int m = restaurant.values().length;
+		int i=0;
+		while(i<m)
+		{
+			System.out.println("Enter your choice: ");
+			int n = sc.nextInt();
+			switch(n)
+			{
+			case 1: restaurant r = restaurant.PizzaHut;
+					System.out.println(r);
+					break;
+			case 2: restaurant re = restaurant.Dominos;
+					System.out.println(re);
+					break;
+			case 3: restaurant res = restaurant.Udupi_upachar;
+					System.out.println(res);
+					break;
+			default: System.out.println("Invalid choice");
+					 break;
+			}
+			i++;
+		}
+		
+	}
+
+}
+
+
+
+
+2.
+
+public class Main {    
+    public static void main(String[] args) {    
+        String string = "Big black bug bit a big black dog on his big black nose";    
+        int count;    
+            
+        //Converts the string into lowercase    
+        string = string.toLowerCase();    
+            
+        //Split the string into words using built-in function    
+        String words[] = string.split(" ");    
+            
+        System.out.println("Duplicate words in a given string : ");     
+        for(int i = 0; i < words.length; i++) {    
+            count = 1;    
+            for(int j = i+1; j < words.length; j++) {    
+                if(words[i].equals(words[j])) {    
+                    count++;    
+                    //Set words[j] to 0 to avoid printing visited word    
+                    words[j] = "0";    
+                }    
+            }    
+                
+            //Displays the duplicate word if count is greater than 1    
+            if(count > 1 && words[i] != "0")    
+                System.out.println(words[i]);    
+        }
+}
+}
+
+
+3.
+
+public class Main {
+    
+   public static void main(String[] args)
+    {
+        String str = "The quick brown fox jumps over the lazy dog.";
+
+         // Replace all the 'dog' with 'cat'.
+        String new_str = str.replaceAll("fox", "cat");
+       
+         // Display the strings for comparison.
+        System.out.println("Original string: " + str);
+        System.out.println("New String: " + new_str);}
+}
+
+
+4.
+
+import java.util.*;
+
+public class Main 
+{
+
+	public static void main(String[] args) 
+        {
+		
+		String input1, vowelsString = "", nonVowelsString = "";
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter input1");
+		input1 = sc.next();
+		int input2;
+		int input3;
+		input1 = input1.toLowerCase();
+		System.out.println("Enter 0 to print consonents or enter 1 to print vowels");
+		input2 = sc.nextInt();
+		System.out.println("Enter 0 to print in lowercase or enter 1 to print in uppercase");
+		input3 = sc.nextInt();
+		for(int i = 0; i < input1.length(); i++) 
+        {
+			
+			if(input1.charAt(i) == 'a' || input1.charAt(i) == 'e' || input1.charAt(i) == 'i' || input1.charAt(i) == 'o' || input1.charAt(i) == 'u')
+            {
+				vowelsString += input1.charAt(i);
+			} 
+			else 
+            {
+				nonVowelsString += input1.charAt(i);
+			}
+		} 
+		if(input2 == 0)
+		{
+			
+			
+			if(input3 == 0)
+			{
+				System.out.println(nonVowelsString);
+			}
+			else
+            {
+				System.out.println(nonVowelsString.toUpperCase());
+			}
+		}
+		else			
+			if(input3 == 0)
+				System.out.println(vowelsString);
+			else
+				System.out.println(vowelsString.toUpperCase());
+	}
+
+}
+

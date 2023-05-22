@@ -1,0 +1,263 @@
+PROGRAM 1
+
+
+import javax.swing.*;
+import java.awt.*;
+
+public class p1 extends JFrame {
+  public p1() {
+    setTitle("Button Frame");
+    setSize(300, 200);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setLayout(new FlowLayout());
+
+    JButton button1 = new JButton("Button 1");
+    add(button1);
+
+    JButton button2 = new JButton("Button 2");
+    add(button2);
+
+    JTextField textField = new JTextField(10);
+    add(textField);
+  }
+
+  public static void main(String[] args) {
+    p1 frame = new p1();
+    frame.setVisible(true);
+  }
+}
+--------------------------------------------------------------------------------------
+PROGRAM 2
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class prog2 extends JFrame implements ActionListener {
+  private JButton button;
+
+  public prog2() {
+    setTitle("Button Frame");
+    setSize(300, 200);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setLayout(new FlowLayout());
+
+    button = new JButton("Click me");
+    button.addActionListener(this);
+    add(button);
+  }
+
+  public void actionPerformed(ActionEvent e) {
+    if (e.getSource() == button) {
+      JOptionPane.showMessageDialog(this, "Button was clicked!");
+    }
+  }
+
+  public static void main(String[] args) {
+    prog2 frame = new prog2();
+    frame.setVisible(true);
+  }
+}
+
+------------------------------------------------------------------------------------------------------
+
+PROGRAM 3
+
+import javax.swing.*;
+import java.awt.*;
+
+public class p3 extends JFrame {
+  private JTextField textField1;
+  private JTextField textField2;
+  private JTextArea textArea;
+
+  public p3() {
+    setTitle("Text Field Frame");
+    setSize(400, 300);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setLayout(new FlowLayout());
+
+    textField1 = new JTextField(10);
+    textField1.setEditable(true);
+    add(textField1);
+
+    textField2 = new JTextField(10);
+    textField2.setEditable(true);
+    add(textField2);
+
+    textArea = new JTextArea(5, 20);
+    textArea.setEditable(true);
+    add(textArea);
+  }
+
+  public static void main(String[] args) {
+    p3 frame = new p3();
+    frame.setVisible(true);
+  }
+}
+
+
+
+
+
+---------------------------------------------------------------------------------
+
+PROGRAM 4
+
+
+import javax.swing.*;
+import java.awt.*;
+
+public class p4 extends JFrame {
+  private JComboBox<String> comboBox;
+  private JLabel label;
+
+  public p4() {
+    setTitle("Combo Box Frame");
+    setSize(400, 300);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setLayout(new FlowLayout());
+
+    String[] choices = {"Item 1", "Item 2", "Item 3", "Item 4"};
+    comboBox = new JComboBox<>(choices);
+    comboBox.addActionListener(e -> {
+      String selection = (String) comboBox.getSelectedItem() + " selected ";
+      label.setText(selection);
+    });
+    add(comboBox);
+
+    label = new JLabel();
+    add(label);
+  }
+
+  public static void main(String[] args) {
+    p4 frame = new p4();
+    frame.setVisible(true);
+  }
+}
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+PROGRAM 5
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class p5 extends JFrame implements ActionListener {
+  private JList<String> list;
+  private JPopupMenu popupMenu;
+  private JMenuItem menuItem;
+
+  public p5() {
+    setTitle("List Frame");
+    setSize(400, 300);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    setLayout(new FlowLayout());
+
+    String[] items = {"Item 1", "Item 2", "Item 3", "Item 4"};
+    list = new JList<>(items);
+    list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+    list.addMouseListener(new MouseAdapter() {
+      public void mouseClicked(MouseEvent e) {
+        if (e.getButton() == MouseEvent.BUTTON3) {
+          popupMenu.show(list, e.getX(), e.getY());
+        }
+      }
+    });
+    add(new JScrollPane(list));
+
+    popupMenu = new JPopupMenu();
+    menuItem = new JMenuItem("Display message");
+    menuItem.addActionListener(this);
+    popupMenu.add(menuItem);
+  }
+
+  public void actionPerformed(ActionEvent e) {
+    if (e.getSource() == menuItem) {
+      int[] indices = list.getSelectedIndices();
+      StringBuilder sb = new StringBuilder();
+      for (int index : indices) {
+        sb.append(list.getModel().getElementAt(index)).append(" ");
+      }
+      JOptionPane.showMessageDialog(this, "Selected items: " + sb.toString());
+      }
+      }
+
+      public static void main(String[] args) {
+      p5 frame = new p5();
+      frame.setVisible(true);
+      }
+      }
+
+
+
+---------------------------------------------------------------------------------------------------------
+
+
+PROGRAM 6
+
+import java.util.Scanner;
+
+class OutOfRangeException extends Exception {
+  public OutOfRangeException(String message) {
+    super(message);
+  }
+}
+
+public class p6 {
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.print("Enter a number: ");
+    int num = scanner.nextInt();
+
+    try {
+      if (num < 10 || num > 50) {
+        throw new OutOfRangeException("Number is out of range");
+      }
+      System.out.println("The square of the number is: " + num * num);
+    } catch (OutOfRangeException e) {
+      System.out.println(e.getMessage());
+    }
+  }
+}
+
+
+
+--------------------------------------------------------------------------------------------------------
+
+
+PROGRAM 7
+
+
+import java.util.*;
+public class Main {
+  public static void main(String[] args) {
+    if (args.length < 2) {
+      throw new IllegalArgumentException("Two numbers are required");
+    }
+    Scanner sc = new Scanner(System.in);
+    int num1 = Integer.parseInt(args[0]);
+    int num2 = Integer.parseInt(args[1]);
+    // System.out.println("Enter 2 numbers: ");
+    // int num1=sc.nextInt();
+    // int num2 = sc.nextInt();
+
+    try {
+      int result = num1 / num2;
+      System.out.println("The result of the division is: " + result);
+    } catch (ArithmeticException e) {
+      System.out.println("Cannot divide by zero");
+    }
+  }
+}
+
+
+
+
+----------------------------------------------------------------------------------------------------------
+
